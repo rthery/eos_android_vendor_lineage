@@ -28,7 +28,7 @@ PRODUCT_DEXPREOPT_SPEED_APPS += \
 endif
 
 PRODUCT_PACKAGES += \
-    TrebuchetOverlay
+    BlissLauncherOverlay
 
 # Charger
 PRODUCT_PACKAGES += \
