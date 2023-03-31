@@ -17,11 +17,11 @@
 -->
 <resources>
     <!-- Corner radius of system dialogs -->
-    <dimen name="config_dialogCornerRadius">28dp</dimen>
+    <dimen name="config_dialogCornerRadius">4dp</dimen>
     <!-- Corner radius of system buttons -->
     <dimen name="config_buttonCornerRadius">4dp</dimen>
     <!-- Corner radius for bottom sheet system dialogs -->
-    <dimen name="config_bottomDialogCornerRadius">16dp</dimen>
+    <dimen name="config_bottomDialogCornerRadius">8dp</dimen>
     <!-- Corner radius of system progress bars -->
     <dimen name="config_progressBarCornerRadius">1000dp</dimen>
     <!-- System-provided radius for the background view of app widgets. The resolved value of this resource may change at runtime. -->

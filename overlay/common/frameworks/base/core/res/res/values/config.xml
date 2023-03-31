@@ -80,8 +80,8 @@
     <!--  Maximum number of supported users -->
     <integer name="config_multiuserMaximumUsers">4</integer>
 
-   <!-- Set icon mask to circle -->
-   <string name="config_icon_mask" translatable="false">"M50 0A50 50,0,1,1,50 100A50 50,0,1,1,50 0"</string>
+    <!-- Set icon mask to circle -->
+    <string name="config_icon_mask">M 78.9068 100.0425 H 21.0206 c -11.6647 0 -21.1077 -9.4484 -21.1077 -21.12 V 21.12 C 0.03 9.4484 9.473 0 21.1377 0 h 57.7688 c 11.6647 0 21.1077 9.4484 21.1077 21.12 v 57.8023 C 100.0146 90.5941 90.5719 100.0425 78.9068 100.0425 z</string>
 
     <!-- Whether action menu items should be displayed in ALLCAPS or not.
          Defaults to true. If this is not appropriate for specific locales
@@ -89,7 +89,7 @@
     <bool name="config_buttonTextAllCaps">false</bool>
 
     <!-- Flag indicating whether round icons should be parsed from the application manifest. -->
-    <bool name="config_useRoundIcon">true</bool>
+    <bool name="config_useRoundIcon">false</bool>
 
     <!-- Whether or not we should show the option to show battery percentage -->
     <bool name="config_battery_percentage_setting_available">false</bool>
