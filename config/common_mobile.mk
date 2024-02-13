@@ -90,5 +90,7 @@ PRODUCT_PACKAGES += \
     ThemePicker \
     ThemesStub
 
+PRODUCT_PACKAGE_OVERLAYS += vendor/lineage/overlay/mobile
+
 # Include configuration for eos
 $(call inherit-product, vendor/eos/config/common_mobile.mk)
