@@ -28,7 +28,7 @@ PRODUCT_DEXPREOPT_SPEED_APPS += \
 endif
 
 PRODUCT_PACKAGES += \
-    TrebuchetOverlay
+    BlissLauncherOverlay
 
 # Charger
 PRODUCT_PACKAGES += \
@@ -66,6 +66,7 @@ PRODUCT_PACKAGES += \
     IconPackVictorLauncherOverlay \
     IconPackVictorSettingsOverlay \
     IconPackVictorSystemUIOverlay \
+    IconShapeCircleOverlay \
     IconShapePebbleOverlay \
     IconShapeRoundedRectOverlay \
     IconShapeSquareOverlay \
