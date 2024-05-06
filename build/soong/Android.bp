@@ -89,6 +89,23 @@ camera_override_format_from_reserved {
 }
 
 soong_config_module_type {
+    name: "camera_custom_scaler_configuration",
+    module_type: "cc_defaults",
+    config_namespace: "lineageGlobalVars",
+    value_variables: ["camera_custom_scaler_configuration"],
+    properties: ["cppflags"],
+}
+
+camera_custom_scaler_configuration {
+    name: "camera_custom_scaler_configuration_defaults",
+    soong_config_variables: {
+        camera_custom_scaler_configuration: {
+            cppflags: ["-DTARGET_CAMERA_CUSTOM_SCALER_CONFIGURATION=\"%s\""],
+        },
+    },
+}
+
+soong_config_module_type {
     name: "gralloc_10_usage_bits",
     module_type: "cc_defaults",
     config_namespace: "lineageGlobalVars",
