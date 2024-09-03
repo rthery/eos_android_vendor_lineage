@@ -826,8 +826,8 @@
   <apn carrier="NetCom" mcc="242" mnc="02" apn="netcom" proxy="10.254.254.10" port="8080" mmsc="http://mm/" mmsproxy="212.169.66.4" mmsport="8080" type="default,supl,mms" />
   <apn carrier="Tele2 Internet" mcc="242" mnc="04" apn="internet.tele2.no" proxy="" port="" user="" password="" mmsc="" type="default,supl" />
   <apn carrier="Tele2 MMS" mcc="242" mnc="04" apn="internet.tele2.no" proxy="" port="" user="" password="" mmsc="http://mmsc.tele2.no" mmsproxy="193.12.40.14" mmsport="8080" type="mms" />
-  <apn carrier="NwN Internet" mcc="242" mnc="05" apn="internet" type="default,supl" />
-  <apn carrier="NwN MMS" mcc="242" mnc="05" apn="mms" mmsc="http://mms.nwn.no" mmsproxy="188.149.250.10" mmsport="80" type="mms" />
+  <apn carrier="OneCall Internet" mcc="242" mnc="05" apn="internet" authtype="1" type="default,supl" protocol="IPV4V6" roaming_protocol="IPV4V6" />
+  <apn carrier="OneCall MMS" mcc="242" mnc="05" apn="mms" mmsc="http://mmsc/" mmsproxy="10.100.100.100" mmsport="80" authtype="1" type="mms" protocol="IPV4V6" roaming_protocol="IPV4V6" />
   <apn carrier="TDC Internet" mcc="242" mnc="08" apn="internet" user="" password="" authtype="3" type="default,supl" />
   <apn carrier="TDC MMS" mcc="242" mnc="08" apn="mms" proxy="" port="" mmsproxy="inetproxy.tdc.dk" mmsport="8080" mmsc="http://mmsc.tdc.dk:8002" user="" password="" authtype="3" type="mms" />
   <apn carrier="DNA Internet" mcc="244" mnc="03" apn="internet" type="default,supl" />
