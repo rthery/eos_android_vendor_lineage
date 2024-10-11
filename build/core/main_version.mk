@@ -4,11 +4,15 @@ ADDITIONAL_SYSTEM_PROPERTIES += \
     ro.build.fingerprint=$(BUILD_FINGERPRINT)
 endif
 
+ifneq ($(PRODUCT_VERSION_MAINTENANCE), 0)
+    PRODUCT_VERSION_OPTIONAL := .$(PRODUCT_VERSION_MAINTENANCE)
+endif
+
 # LineageOS System Version
 ADDITIONAL_SYSTEM_PROPERTIES += \
     ro.lineage.version=$(LINEAGE_VERSION) \
     ro.lineage.releasetype=$(LINEAGE_BUILDTYPE) \
-    ro.lineage.build.version=$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR) \
+    ro.lineage.build.version=$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)$(PRODUCT_VERSION_OPTIONAL) \
     ro.modversion=$(LINEAGE_VERSION) \
     ro.lineagelegal.url=https://lineageos.org/legal \
     ro.elegal.url=https://e.foundation/legal
