@@ -16,11 +16,15 @@
 #
 
 ifeq ($(TARGET_USES_MURENA_BOOTANIMATION),true)
-BOOTANIMATION_TAR = bootanimation_murena.tar
-BOOTANIMATION_FPS := 30
+  ifeq ($(shell [ $(TARGET_SCREEN_WIDTH) -gt $(TARGET_SCREEN_HEIGHT) ] && echo true),true)
+    BOOTANIMATION_TAR = bootanimation_murena_land.tar
+  else
+    BOOTANIMATION_TAR = bootanimation_murena.tar
+  endif
+  BOOTANIMATION_FPS := 30
 else
-BOOTANIMATION_TAR = bootanimation.tar
-BOOTANIMATION_FPS := 60
+  BOOTANIMATION_TAR = bootanimation.tar
+  BOOTANIMATION_FPS := 60
 endif
 
 TARGET_GENERATED_BOOTANIMATION := $(TARGET_OUT_INTERMEDIATES)/BOOTANIMATION/bootanimation.zip
@@ -30,26 +34,34 @@ $(TARGET_GENERATED_BOOTANIMATION): $(SOONG_ZIP)
 	@rm -rf $(dir $@)
 	@mkdir -p $(INTERMEDIATES)
 	$(hide) tar xfp vendor/lineage/bootanimation/$(BOOTANIMATION_TAR) -C $(INTERMEDIATES)
-	$(hide) if [ $(TARGET_SCREEN_HEIGHT) -lt $(TARGET_SCREEN_WIDTH) ]; then \
+	$(hide) \
+	if [ $(TARGET_SCREEN_WIDTH) -gt $(TARGET_SCREEN_HEIGHT) ]; then \
 	    IMAGEWIDTH=$(TARGET_SCREEN_HEIGHT); \
+	    IMAGEHEIGHT=$(TARGET_SCREEN_WIDTH); \
 	else \
 	    IMAGEWIDTH=$(TARGET_SCREEN_WIDTH); \
+	    IMAGEHEIGHT=$(TARGET_SCREEN_HEIGHT); \
 	fi; \
 	IMAGESCALEWIDTH=$$IMAGEWIDTH; \
 	if [ "$(TARGET_USES_MURENA_BOOTANIMATION)" = "true" ]; then \
-		IMAGESCALEHEIGHT=$(TARGET_SCREEN_HEIGHT); \
+		IMAGESCALEHEIGHT=$$IMAGEHEIGHT; \
 	else \
 		IMAGESCALEHEIGHT=$$(expr $$IMAGESCALEWIDTH / 3); \
 	fi; \
 	if [ "$(TARGET_BOOTANIMATION_HALF_RES)" = "true" ]; then \
 	    IMAGEWIDTH="$$(expr "$$IMAGEWIDTH" / 2)"; \
 	fi; \
-	if [ "$(TARGET_USES_MURENA_BOOTANIMATION)" = "true" ]; then \
-		IMAGEHEIGHT=$(TARGET_SCREEN_HEIGHT); \
-	else \
+	if [ "$(TARGET_USES_MURENA_BOOTANIMATION)" != "true" ]; then \
 		IMAGEHEIGHT=$$(expr $$IMAGEWIDTH / 3); \
 	fi; \
-	RESOLUTION="$$IMAGEWIDTH"x"$$IMAGEHEIGHT"; \
+	if [ $(TARGET_SCREEN_WIDTH) -gt $(TARGET_SCREEN_HEIGHT) ]; then \
+	    RESOLUTION="$$IMAGEHEIGHT"x"$$IMAGEWIDTH"; \
+	    TMP=$$IMAGESCALEHEIGHT; \
+	    IMAGESCALEHEIGHT=$$IMAGESCALEWIDTH; \
+	    IMAGESCALEWIDTH=$$TMP; \
+	else \
+	    RESOLUTION="$$IMAGEWIDTH"x"$$IMAGEHEIGHT"; \
+	fi; \
 	for part_cnt in 0 1 2 3 4; do \
 	    mkdir -p $(INTERMEDIATES)/part$$part_cnt; \
 	done; \
